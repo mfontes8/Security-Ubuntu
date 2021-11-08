@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#Command shows who was last to login to the system.
+
+echo "Displaying Login Information for specific user Mfontes"
+last $USERS mfontes 
+
+#Shows all users who are currently logged into the system
+
+echo "Who is currently signed in"
+w
+
+#Show recent logins
+
+echo "Other Recent Logins"
+
+cd /var/log
+who wtmp | tail -10
