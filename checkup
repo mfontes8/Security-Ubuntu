@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# A more action oriented monitoring. It monitors all files with the main home page 
+that contains hidden files. We check for any files created, modified, last accessed, and edited. Then we append anychanges to echo what file,l what action, and what path
+inotifywait -r -t 3600 /home/mfontes -e create -e modify -e access -e attrib
+      while read path action file; do
+              echo "File '$file' has been '$action' in '$path'"
+      
+      done
