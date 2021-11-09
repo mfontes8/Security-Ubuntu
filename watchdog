@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#Monitors changes in the log in the log files stored within the directory. These files keep track of anything and everything that is being done within the system
+inotifywait -r /var/log
+
+#Monitors the /etc/ directory. This is an important directory because it stores hostnames, passwords, dns information, and other information that is sensitive towards the system
+inotifywait -r /etc/
+
+#To monitor if any changes to host names. Raises a red flag if a unknown host has been added
+inotifywait -r /etc/hosts
+
+#Protects DNS information. Critical if modified. Can be changed to communicate with imposter system
+inotifywait -r /etc/resolv.conf
+
+cd /var/log
+
+#Check up on recently installed and updated packages
+tail dpkg.log
