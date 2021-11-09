@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#Monitors the /etc/ directory. This is an important directory because it stores hostnames, passwords, dns information, and other information that is sensitive towards the system
+inotifywait -rm /etc/
+
+cd /etc/
+
+#Check up on time and which user last accessed files or directories
+ls -la
